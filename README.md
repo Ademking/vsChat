@@ -27,7 +27,6 @@ _italic_
 ~~strike~~ 
 * list 
 > blockquote 
---- 
 [alt](link) 
 ![alt](image.jpg)
 ```
