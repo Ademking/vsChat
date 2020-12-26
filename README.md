@@ -4,7 +4,7 @@
 
 ## Usage
 
-![Demo](demo.gif)
+![](https://i.imgur.com/GEtmHDq.gif)
 
 To open Chat Room in VS Code:
 
