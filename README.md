@@ -2,9 +2,11 @@
 
 [VScode Extension] Chat with developers around the world.
 
+![](https://i.imgur.com/YHbDtjv.png)
+
 ## Usage
 
-![](https://i.imgur.com/GEtmHDq.gif)
+![](https://media.giphy.com/media/DfKgDKtslKrsK1JIZu/giphy.gif)
 
 To open Chat Room in VS Code:
 
