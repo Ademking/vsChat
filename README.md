@@ -1,4 +1,4 @@
-# vsChat
+# vsChat 💬
 
 [VScode Extension] Chat with developers around the world.
 
