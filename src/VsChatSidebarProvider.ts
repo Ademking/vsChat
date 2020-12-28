@@ -2,7 +2,7 @@ import * as vscode from "vscode";
 import * as path from "path";
 import getWebviewContent from "./iframeView";
 export class VsChatSidebarProvider implements vscode.WebviewViewProvider {
-  constructor(private readonly _extensionUri: vscode.Uri) {}
+  constructor(private readonly _extensionUri: vscode.Uri) { }
 
   public resolveWebviewView(
     webviewView: vscode.WebviewView,
@@ -111,6 +111,8 @@ export class VsChatSidebarProvider implements vscode.WebviewViewProvider {
         <li>Have fun!</li>
       </ul>
       <br>
+        <button id="createBtn" class="bluebtn">Create Chatroom ➕ (in developing)</button>
+        <button id="joinBtn" class="bluebtn">Join Chatroom ➡ (in developing)</button>
         <button id="enterBtn" class="bluebtn">Enter Chatroom 💬</button>
         <div class="greybtn"><a href="http://github.com/Ademking/vsChat">GitHub ⭐</a> | <a href="https://www.buymeacoffee.com/Ademkk">Buy me a coffee ☕</a></div>
        
