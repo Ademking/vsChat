@@ -32,19 +32,51 @@ export class VsChatSidebarProvider implements vscode.WebviewViewProvider {
     });
   }
 
+  // Make panel's title readable
+  // 
+  public prettifyPanelTitle(chatroomId: string) {
+    switch (chatroomId) {
+      case "vschat":
+        return "#General";
+      case "frontend":
+        return "#FrontEnd";
+      case "backend":
+        return "#BackEnd";
+      case "mobiledev":
+        return "#MobileDev";
+      case "data_science":
+        return "#DataScience";
+      case "devops":
+        return "#DevOps";
+      case "gamedev":
+        return "#GameDev";
+      case "frameworks":
+        return "#Frameworks";
+      default:
+        return "#vsChat";
+    }
+  }
+
   public openPanel(data: any) {
-    let username = data.value;
+    let username = data.username;
+    let chatroomId = data.chatroomId;
     const panel = vscode.window.createWebviewPanel(
       "vsChat",
-      "Chatroom",
+      this.prettifyPanelTitle(chatroomId),
       vscode.ViewColumn.One,
       {
         enableScripts: true,
-        retainContextWhenHidden: false,
+        retainContextWhenHidden: true,
+        enableCommandUris: true,
+        enableFindWidget: true,
       }
     );
-    panel.webview.html = getWebviewContent(username);
-    panel.iconPath = vscode.Uri.joinPath(this._extensionUri, "img", "white-small.png");
+    panel.webview.html = getWebviewContent(username, chatroomId);
+    panel.iconPath = vscode.Uri.joinPath(
+      this._extensionUri,
+      "img",
+      "white-small.png"
+    );
   }
 
   private getNonce() {
@@ -101,18 +133,34 @@ export class VsChatSidebarProvider implements vscode.WebviewViewProvider {
       <br>
 				<label for="fname">Username:</label>
         <input type="text" id="username" name="username" placeholder="Your username">
+        
+        <label for="chatroom">Chatroom:</label>
+        
+          <select name="chatroom" id="chatroom">
+            <option value="vschat">#General</option>
+            <option value="frontend">#FrontEnd</option>
+            <option value="backend">#BackEnd</option>
+            <option value="mobiledev">#MobileDev</option>
+            <option value="data_science">#DataScience</option>
+            <option value="devops">#DevOps</option>
+            <option value="gamedev">#GameDev</option>
+            <option value="frameworks">#Frameworks</option>
+          </select>
         <br>
+        
         <h4>Rules</h4>
-         <ul>
-        <li>Be positive & helpful</li>
-        <li>Be respectful</li>
-        <li>Do not self promote</li>
-        <li>Always be polite</li>
-        <li>Have fun!</li>
-      </ul>
-      <br>
+        <ul>
+          <li>Be positive & helpful</li>
+          <li>Be respectful</li>
+          <li>Do not self promote</li>
+          <li>Always be polite</li>
+          <li>Have fun!</li>
+        </ul>
+        
+        <br>
+        
         <button id="enterBtn" class="bluebtn">Enter Chatroom 💬</button>
-        <div class="greybtn"><a href="http://github.com/Ademking/vsChat">GitHub ⭐</a> | <a href="https://www.buymeacoffee.com/Ademkk">Buy me a coffee ☕</a></div>
+        <div class="greybtn"><a href="http://github.com/Ademking/vsChat">v0.0.5</a> | <a href="http://github.com/Ademking/vsChat">GitHub ⭐</a> | <a href="https://about.me/ademkouki">Contact 📧</a></div>
        
         <script nonce="${nonce}" src="${scriptUri}"></script>
 			</body>

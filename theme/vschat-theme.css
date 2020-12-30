@@ -1,0 +1,77 @@
+/* Custom tlk.io Chatroom CSS */
+
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+
+#header {
+    display: none;
+}
+
+#channel {
+    text-transform: uppercase;
+}
+
+.header-avatar,
+.info,
+.menu,
+#share_button {
+    display: none;
+}
+
+html,
+.header-channel {
+    font-family: 'Source Code Pro', monospace;
+}
+
+.aside {
+    background-color: transparent !important;
+}
+
+/* fixed by @steffan and @lxhom - Thank you */
+.message-button--submit.show {
+    display: none !important;
+}
+
+.message-button--submit:not(.show) {
+    display: block !important;
+}
+
+button#submit-button {
+    position   : static;
+    margin-left: 10px;
+    height     : 52px;
+    display    : block !important;
+}
+
+form#new_message {
+    position: static;
+    display : flex;
+}
+
+.message-input:focus {
+    border-color    : rgba(0, 0, 0, 0.3) !important;
+    background-color: #202225 !important;
+    box-shadow      : inset 0 1px 3px rgb(0 0 0 / 6%), 0 1px 1px rgb(255 255 255 / 10%) !important;
+}
+
+.list-item::after {
+    content   : '';
+    font-style: italic;
+    font-size : 0.7em;
+    opacity   : 0;
+    transition: opacity .3s;
+}
+
+.typing {
+    color: #cccccc !important;
+}
+
+.typing.list-item::after {
+    content: 'Typing...' !important;
+    opacity: 1 !important;
+}
+
+@media (max-width: 919px) {
+    .chat .post:nth-last-of-type(-n+3) {
+        padding-top: 37px !important;
+    }
+}

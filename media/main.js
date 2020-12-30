@@ -39,13 +39,17 @@
             return;
         } else { // everything is ok
             // store username state
+            
+            let chatroomId = document.getElementById("chatroom").value;
+
             vscode.setState({
                 username: usernameValue
             });
             // send message to VsChatSidebarProvider
             vscode.postMessage({
                 type: 'success',
-                value: `${usernameValue}`
+                username: usernameValue,
+                chatroomId
             });
             return;
         }
